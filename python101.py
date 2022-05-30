@@ -10,7 +10,6 @@ class Solution:
         ### Recursive
         left_stack = []
         right_stack = []
-        print(self.left_subtree(root.left, left_stack), self.right_subtree(root.right, right_stack))
         
         return self.left_subtree(root.left, left_stack) == self.right_subtree(root.right, right_stack)
         
