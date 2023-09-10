@@ -1,4 +1,29 @@
 class Solution:
+    '''
+    Attempted again after a year
+    '''
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        # Time complexity: O(N)
+        # Space complexity: O(2 * N) ~ O(N)
+        len_nums = len(nums)
+        res = [1] * len_nums
+        pre = [1] * len_nums
+        post = [1] * len_nums
+        pre_prod = 1
+        post_prod = 1
+        for i in range(1, len_nums):
+            pre_prod *= nums[i-1]
+            pre[i] = pre_prod
+        for i in range(len_nums-2, -1, -1):
+            post_prod *= nums[i+1]
+            post[i] = post_prod
+        for i in range(len_nums):
+            res[i] = pre[i] * post[i]
+        return res
+            
+'''
+Did in 2022
+'''
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         #    Time complexity: O(N) Space complexity O(1)
         n = len(nums)
